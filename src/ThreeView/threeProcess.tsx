@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import React from "react";
 
 const threeProcess = (
@@ -31,6 +32,10 @@ const threeProcess = (
   light.position.set(-1, 2, 4);
 
   scene.add(light);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.set(0, 0, 0);
+  controls.update();
 
   const animate = function () {
     requestAnimationFrame(animate);
